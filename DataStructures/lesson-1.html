@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Числа</title>
+</head>
+<body>
+ <h2>Числа</h2>
+
+ <script>
+     // var num1 = +prompt('Введите любое число', 0);
+     // var num2 = +prompt('Введите любое число', 0);
+     // alert(num1 + num2);
+
+     // var numberMax = +prompt('Введите число', '')
+     //
+     // function rundovMax(n) {
+     //     return Math.random() * n;
+     // }
+     //
+     // alert(rundovMax(numberMax));
+
+     var numberMin = +prompt('Введите число', '');
+     var numberMax = +prompt('Введите число больше предыдущего', (numberMin + 1) );
+
+     function rundovMax(min, max) {
+         return min + Math.random() * (max - min);
+     }
+
+     alert(rundovMax(numberMin, numberMax));
+ </script>
+
+<script src="js/lesson-1.js"></script>
+
+</body>
+</html>
