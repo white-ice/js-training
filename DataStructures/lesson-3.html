@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Введение в методы и свойства</title>
+</head>
+<body>
+ <h2>Строки</h2>
+ <label for="name">Ведите имя с маленькой буквы</label>
+ <input id="name" type="text" value="">
+ <button onclick="showResult()">выполнить</button>
+ <br>
+ <br>
+ <h4>Проверим на спам слова "ХХХ" и "Виагра"</h4>
+ <label for="str">Введите любое предложение</label>
+ <input id="str" type="text" value="">
+ <button onclick="showResultSpam()">выполнить</button>
+ <br>
+ <br>
+ <h4>Усечение строки</h4>
+ <label for="strMaxLength">Введите любое предложение, максимальное количество символов 15</label>
+ <input id="strMaxLength" type="text" value="">
+ <button onclick="showResultMaxResult()">выполнить</button>
+
+ <script>
+     // Сделать первый символ заглавный
+    function ucFirst(str) {
+        if (!str) return str;
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+
+    function showResult() {
+        var name = document.getElementById('name').value;
+        console.log(name);
+        if (!name) return false;
+        alert(ucFirst(name));
+    }
+
+    function checkSpam(str) {
+        var lowerStr = str.toLowerCase();
+        return !!(~lowerStr.indexOf('виагра') || ~lowerStr.indexOf('ххх'));
+    }
+    function showResultSpam() {
+        var str = document.getElementById('str').value;
+        alert(checkSpam(str));
+    }
+
+     function trancate(str) {
+         return str.length > 15 ? str.substr(0, 12) + '...' : str;
+     }
+
+    function showResultMaxResult() {
+        var str = document.getElementById('strMaxLength').value;
+        alert(trancate(str));
+    }
+
+
+ </script>
+
+<script src="js/lesson-3.js"></script>
+
+</body>
+</html>
