@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объекты: перебор свойств</title>
+</head>
+<body>
+ <h2>Объекты: перебор свойств</h2>
+
+ <script>
+    // Задача: создать объект
+     var user = {};
+     user.name = 'Вася';
+     user.surname = 'Петров';
+     user.name = 'Сергей';
+     delete user.name;
+
+     var avto = {};
+
+     function isEmpty(obj) {
+         var counter = null;
+
+         for (var key in obj) counter++;
+
+         return counter > 0 ? true : false;
+     }
+
+     console.log('Оъект не пустой - ', isEmpty(user));
+     console.log('Оъект не пустой - ', isEmpty(avto));
+
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+    };
+
+    var sum = 0;
+
+    for (var key in salaries) {
+        sum += salaries[key];
+    }
+    alert(sum);
+ </script>
+
+<!--<script src="js/lesson-5.js"></script>-->
+
+</body>
+</html>
