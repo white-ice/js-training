@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объекты: передача по ссылке</title>
+</head>
+<body>
+ <h2>Объекты: передача по ссылке</h2>
+
+ <script>
+    // Задача: создать объект
+     var user = {};
+     user.name = 'Вася';
+     user.surname = 'Петров';
+     user.name = 'Сергей';
+     delete user.name;
+
+     var admin = user;
+
+     admin.name = 'Петя';
+
+     console.log(user.name);
+
+ </script>
+
+<script src="js/lesson-5.js"></script>
+
+</body>
+</html>

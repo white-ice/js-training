@@ -38,3 +38,29 @@ for (var code in codes) {
     code = +code;
     console.log( code + ': ' + value );
 }
+
+// Копирование по ссылке.
+
+var user = {};
+user.name = 'Вася';
+user.surname = 'Петров';
+user.name = 'Сергей';
+delete user.name;
+
+var admin = user;
+
+admin.name = 'Петя';
+
+console.log(user.name);
+
+// Клонирование объекстов
+
+var clone = {};
+
+for (var key in user) {
+    clone[key] = user[key];
+}
+
+clone.name = 'Вася';
+
+console.log(user.name);
