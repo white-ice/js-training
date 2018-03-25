@@ -143,8 +143,46 @@ var user = {
 var keys = Object.keys(user);
 
 console.log(keys);
-
 console.log(nambersArr);
 
+// Метод ForEach
+console.log('ForEach______');
 
+fruits.forEach(function(item, i, arr) {
+    console.log(i + ': ' + item + ' (массив:' + arr + ')' );
+});
+
+// Метод Filter
+console.log('filter______');
+nambersArr = [1, -1, 2, -2, 3];
+var positiveArr = nambersArr.filter(function(number) {
+    return number > 0;
+});
+console.log('Вывидем позитивные числа с масива - ', positiveArr);
+
+// Метод Map
+console.log('Map______');
+var nameLengths = namesArr.map(function(name) {
+    return name.length;
+});
+
+console.log('Масив с количеством подсчитаных символов - ', nameLengths);
+
+// Методы every/some
+console.log('every/some______');
+function isPositive(number) {
+    return number > 0;
+}
+console.log('// false, не все положительные - ', nambersArr.every(isPositive));
+console.log('// true, есть хоть одно положительное - ', nambersArr.some(isPositive));
+
+// Методы reduce/reduceRight
+console.log('reduce/reduceRight______');
+var result = nambersArr.reduce(function(sum, current) {
+    console.log('sum', sum);
+    console.log('current', current);
+    return sum + current;
+}, 0);
+
+console.log(result);
 
