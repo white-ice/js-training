@@ -58,3 +58,93 @@ var matrix = [
 console.log('Многомерный масив обращение к элементу - ', matrix[1][1]);
 
 console.log(fruits[fruits.length - 1]);
+
+//Массивы: методы
+//Метод split делает массив с преданными данными разделяя указанным разделителем
+console.log('Split______');
+var names = 'Маша, Петя, Марина, Василий';
+
+var namesArr = names.split(', ');
+for (var i = 0; i < namesArr.length; i++) {
+    console.log( 'Вам сообщение ' + namesArr[i]);
+}
+//Метод join делает строку с массива разделяя указанным разделителем.
+console.log('Join______');
+console.log(namesArr.join(';'));
+
+// Удаление из масива delete как в объекте
+console.log(delete namesArr[3]);
+console.log('Осталась дыра', namesArr);
+
+// Метод splice
+console.log('Splice_______');
+namesArr = names.split(', ');
+
+console.log('Вырезает элементы масива и возвращает их - ', namesArr.splice(0, 2));
+console.log(namesArr);
+
+namesArr = names.split(', ');
+
+console.log('Вырезаем и вставляем - ', namesArr.splice(0, 2, 'Таня', 'Даша'));
+console.log(namesArr);
+
+namesArr = names.split(', ');
+console.log('Вставляем элементы без удаления - ', namesArr.splice(2, 0, 'Таня', 'Даша'));
+console.log(namesArr);
+
+namesArr = names.split(', ');
+console.log('Вставляем элементы без удаления с отрицательным номером позиции - ', namesArr.splice(-1, 0, 'Таня', 'Даша'));
+console.log(namesArr);
+
+// Метод slice - работает как в строках: отрицательное значение берен элементы с конца, без значения копирует весь массив.
+console.log('Slice_______');
+
+console.log('Копируем участок массива без изменения исходного состояния - ', namesArr.slice(1, 3));
+console.log(namesArr);
+
+// Метод sort(fn) - переобразовывает элементы к строке
+console.log('Sort_______');
+
+var nambersArr = [1, 2, 5, 25, 27, 17];
+
+console.log('Сортировка как строк - ', nambersArr.sort());
+
+// function compareNumeric(a, b) {
+//     if (a > b) return 1;
+//     if (a < b) return -1;
+// }
+function compareNumeric(a, b) {
+    return a - b;
+}
+console.log('Сортировка с указанными правилами - ', nambersArr.sort(compareNumeric));
+
+// Метод reverse
+console.log('Reverse_______');
+
+console.log('Меняет порядок элементов в массиве на обратный - ', nambersArr.reverse());
+
+// Метод concat
+console.log('Concat_______');
+
+console.log('Копируем массив и добавляем элементы и сортируем - ', nambersArr.concat([11, 72, 40], 32, 19).sort(compareNumeric));
+
+// Метод indexOf/lastIndexOf - синтаксис такой же как и для строк.
+console.log('IndexOf/LastIndexOf______');
+console.log(namesArr.indexOf('Даша'));
+
+// Метод Object.keys(obj)
+console.log('Object.keys(obj)______');
+
+var user = {
+    name: "Петя",
+    age: 30
+};
+
+var keys = Object.keys(user);
+
+console.log(keys);
+
+console.log(nambersArr);
+
+
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Массивы: методы</title>
+</head>
+<body>
+ <h2>Массивы: методы</h2>
+
+ <script>
+    // Задача
+ //   Добавить класс в строку
+     var obj = {
+         className: 'open menu'
+     };
+
+     function addClass(obj, cls) {
+         var classes = obj.className ? obj.className.split(' ') : [];
+
+         for (var i = 0; i < classes.length; i++) {
+             if (classes[i] === cls) return;
+         }
+
+         classes.push(cls);
+         obj.className = classes.join(' ');
+     }
+
+ //    Перевести текст вида border-left-width в borderLeftWidth
+
+    // function camelize(str) {
+    //     var arr = str.split('-');
+    //     var newStr = '';
+    //     for (var i = 0; i < arr.length; i++) {
+    //         newStr += (arr[i][0].toUpperCase() + arr[i].slice(1));
+    //     }
+    //     return newStr;
+    // }
+
+    function camelize(str) {
+        var arr = str.split('-');
+
+        for (var i = 1; i < arr.length; i++) {
+            // преобразовать: первый символ с большой буквы
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+
+        return arr.join('');
+    }
+    // Удаление класса
+    function removeClass(obj, cls) {
+        var classes = obj.className ? obj.className.split(' ') : [];
+        for (var i = 0; i < classes.length; i++) {
+            if (classes[i] === cls) {
+                classes.splice(i, 1);
+                i--;
+            }
+        }
+        obj.className = classes.join(' ');
+    }
+    // Фильтрация массива "на месте"
+    function filterRangeInPlace(arr, min, max) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] > min && arr[i] < max ) {
+                arr.splice(i--, 1);
+            }
+        }
+    } // Мой вариант
+
+    // function filterRangeInPlace(arr, a, b) {
+    //
+    //     for (var i = 0; i < arr.length; i++) {
+    //         var val = arr[i];
+    //         if (val < a || val > b) {
+    //             arr.splice(i--, 1);
+    //         }
+    //     }
+    //
+    // }
+
+    // Сортировака в обратном порядке
+    // var nambersArr = [5, 2, 1, -10, 8];
+    //
+    // function compareNumeric(a, b) {
+    //     return a - b;
+    // }
+    // console.log(nambersArr.sort(compareNumeric).reverse());
+
+    var nambersArr = [5, 2, 1, -10, 8];
+
+    function compareReversed(a, b) {
+        return b - a;
+    }
+
+    nambersArr.sort(compareReversed);
+
+ </script>
+
+<script src="js/lesson-7.js"></script>
+
+</body>
+</html>
