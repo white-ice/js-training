@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Массив: перебирающие методыющие методы</title>
+    <title>Псевдомассив аргументов "arguments"</title>
 
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
@@ -38,26 +38,18 @@
             </v-navigation-drawer>
             <v-toolbar color="indigo" dark fixed app>
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-                <v-toolbar-title><h2>Массив: перебирающие методы</h2></v-toolbar-title>
+                <v-toolbar-title><h2>{{ title }}</h2></v-toolbar-title>
             </v-toolbar>
             <v-content>
                 <v-container fluid fill-height grid-list-md>
                     <v-layout
-                            justify-center
-                            align-center
+                            justify-centerd
+                            align-flex-start
                             row
                             wrap
                     >
-                        <v-flex text-xs-center xs4 v-for="i in 3" :key="`4${i}`">
-                            <v-tooltip left>
-                                <v-btn icon large target="_blank" slot="activator">
-                                    <v-icon large>code</v-icon>
-                                </v-btn>
-                                <span>Source</span>
-                            </v-tooltip>
-                        </v-flex>
-                        <v-flex xs3 v-for="i in 4" :key="`3${i}`">
-                            <v-card dark color="secondary">
+                        <v-flex xs12 v-for="i in 1" :key="`12{i}`">
+                            <v-card white>
                                 <v-card-text class="px-0">
                                     <ul>
                                         <li v-for="method in methods">{{method.name}}</li>
@@ -80,6 +72,7 @@
      new Vue({
          el: '#app',
          data: () => ({
+             title: 'Псевдомассив аргументов "arguments',
              methods: [
                  {
                      id: 1,
@@ -116,29 +109,44 @@
              secondary: '#b0bec5',
              accent: '#8c9eff',
              error: '#b71c1c'
-         }
+         },
+         methods: () => ({
+
+         })
      });
  </script>
 
 
  <script>
     // Задача
-     // Проверка на аргумент undefined
-     function f(x) {
-         alert( arguments.length ? 1 : 0 );
-     }
+ //   Перепишите цикл через map
+    var arr = ["Есть", "жизнь", "на", "Марсе"];
+    var arrLength = arr.map(function(name) {
+        return name.length;
+    });
+    alert(arrLength)
 
-    f(undefined);
-    f();
+    function getSums(arr) {
+        var result = [];
+        if (!arr.length) return result;
+
+        arr.reduce(function(sum, item) {
+            result.push(sum);
+            return sum + item;
+        });
+
+        return result;
+    }
+
+    alert(getSums([1,2,3,4,5]));
 
     function sum() {
         var lengthSum = null;
         for (var i = 0; i < arguments.length; i++) {
-            lengthSum += i;
+            lengthSum += arguments[i];
         }
         return lengthSum;
     }
-
 
  </script>
 

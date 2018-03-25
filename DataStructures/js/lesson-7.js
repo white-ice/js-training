@@ -185,4 +185,31 @@ var result = nambersArr.reduce(function(sum, current) {
 }, 0);
 
 console.log(result);
+// Методы reduce/reduceRight
+console.log('reduce/reduceRight______');
 
+
+// copy(vasya, user, student);
+
+function copy() {
+    var dst = arguments[0];
+
+    for (var i = 1; i < arguments.length; i++) {
+        var arg = arguments[i];
+        for (var key in arg) {
+            dst[key] = arg[key];
+        }
+    }
+
+    return dst;
+}
+
+function sum() {
+    var lengthSum = null;
+    for (var i = 0; i < arguments.length; i++) {
+        lengthSum += arguments[i];
+    }
+    return lengthSum;
+}
+
+console.log(sum(23, 4, 8, 9, 48));
