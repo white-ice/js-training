@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[[Scope]] для new Function</title>
+</head>
+<body>
+    <h2>[[Scope]] для new Function</h2>
+
+    <script>
+        // Каков будет результат выполнения этого кода?
+        var value = 0;
+
+        function f() {
+            var value = 1;
+            var func = new Function('', 'console.log(value)');
+            return func;
+        }
+
+        f()();
+
+        function f2() {
+            var value = 2;
+            var func = function() { console.log(value) };
+            return func;
+        }
+
+        f2()();
+
+    </script>
+</body>
+</html>
