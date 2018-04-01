@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Замыкания, функции изнутри</title>
+</head>
+<body>
+    <h2>Замыкания, функции изнутри</h2>
+
+    <script>
+        // Каков будет результат выполнения этого кода?
+        var value = 0;
+
+        function f() {
+            if (1) {
+                value = true;
+            } else {
+                var value = false;
+            }
+
+            alert( value );
+        }
+
+        f();
+        // Не изменится внешная. Если убрать у внетреней слово var то внешняя изменится.
+
+        // Что будет, если вызов say('Вася'); стоит в самом-самом начале, в первой строке кода?
+        say('Вася'); // Что выведет? Не будет ли ошибки?
+
+        var phrase = 'Привет';
+
+        function say(name) {
+            alert( name + ", " + phrase );
+        }
+        // выведет Вася, undefined;
+
+        // LexicalEnvironment - переменный в нутри функцииq
+
+        function makeCounter() {
+            function counter() {
+                return counter.currentCount++;
+            };
+            counter.currentCount = 1;
+
+            return counter;
+        }
+        var counter = makeCounter();
+        console.log(counter())
+        console.log(counter())
+        console.log(counter())
+
+        var makeCounter2 = makeCounter();
+        console.log(makeCounter2());
+
+    </script>
+</body>
+</html>
