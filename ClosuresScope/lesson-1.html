@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Глобальный объект</title>
+</head>
+<body>
+    <h2>Глобальный объект</h2>
+
+    <script>
+        // Каков будет результат кода?
+
+        if ("a" in window) {
+            var a = 1;
+        }
+        alert( a );
+    //  вывидется 1
+    //    Каков будет результат (перед a нет var)?
+        if ("a" in window) {
+            a = 1;
+        }
+        alert( a );
+    //    ошибка
+
+    //    Каков будет результат (перед a нет var, а ниже есть)?
+        if ("a" in window) {
+            a = 1;
+        }
+        var a;
+
+        alert( a );
+        //  вывидется 1
+    </script>
+</body>
+</html>
