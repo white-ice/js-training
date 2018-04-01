@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление памятью в JavaScript</title>
+</head>
+<body>
+    <h2>Управление памятью в JavaScript</h2>
+
+    <script>
+        var value = "Сюрприз";
+
+        function f() {
+            var value = "самое близкое значение";
+
+            function g() {
+                debugger; // выполните в консоли alert( value ); Сюрприз!
+            }
+
+            return g;
+        }
+
+        var g = f();
+        g();
+    </script>
+</body>
+</html>
