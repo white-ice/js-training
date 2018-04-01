@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Модули через замыкания</title>
+</head>
+<body>
+    <h2>Модули через замыкания</h2>
+
+    <script>
+        ;(function() {
+            function makeArmy() {
+                var shooters = [];
+
+                for (var i = 0; i < 10; i++) {
+                    var shooter = function me() { // функция-стрелок
+                        alert(me.i)
+                    };
+                    shooter.i = i;
+                    shooters.push(shooter);
+                }
+
+                return shooters;
+            }
+
+            window.army = makeArmy();
+
+        })();
+
+        army[0](); // стрелок выводит 10, а должен 0
+        army[5](); // стрелок выводит 10...
+    </script>
+</body>
+</html>
