@@ -213,3 +213,5 @@ function sum() {
 }
 
 console.log(sum(23, 4, 8, 9, 48));
+
+

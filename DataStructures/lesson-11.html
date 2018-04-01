@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Дата и Время</title>
+
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<body>
+
+    <div id="app">
+        <v-app id="inspire">
+            <v-navigation-drawer
+                    fixed
+                    v-model="drawer"
+                    app
+            >
+                <v-list dense>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>home</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Home</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile @click="">
+                        <v-list-tile-action>
+                            <v-icon>contact_mail</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Contact</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
+            </v-navigation-drawer>
+            <v-toolbar color="indigo" dark fixed app>
+                <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+                <v-toolbar-title><h2>{{ title }}</h2></v-toolbar-title>
+            </v-toolbar>
+            <v-content>
+                <v-container fluid fill-height grid-list-md>
+                    <v-layout
+                            justify-centerd
+                            align-flex-start
+                            row
+                            wrap
+                    >
+                        <v-flex xs12>
+                            <v-card white>
+                                <v-card-text class="px-0">
+                                    <ul>
+                                        <li> день - {{ getWeekDay() }}</li>
+                                        <li> день по счету - {{ getLocalDay() }}</li>
+                                        <li> вернем число 5 дней назад - {{ getDateAgo(2) }}</li>
+                                    </ul>
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-content>
+            <v-footer color="indigo" app inset>
+                <span class="white--text">&copy; 2017 {{ localTime }}</span>
+            </v-footer>
+        </v-app>
+    </div>
+
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+ <script>
+     new Vue({
+         el: '#app',
+         data: () => ({
+             title: 'Дата и Время',
+             localTime: new Date(),
+             // methods: [
+             //     {
+             //         id: 1,
+             //         'name': 'forEach'
+             //     },
+             //     {
+             //         id: 2,
+             //         'name': 'filter'
+             //     },
+             //     {
+             //         id: 3,
+             //         'name': 'every'
+             //     },
+             //     {
+             //         id: 4,
+             //         'name': 'some'
+             //     },
+             //     {
+             //         id: 5,
+             //         'name': 'map'
+             //     },
+             //     {
+             //         id: 6,
+             //         'name': 'reduce'
+             //     },
+             //     {
+             //         id: 6,
+             //         'name': 'reduceRight'
+             //     }
+             // ]
+         }),
+         theme: {
+             primary: '#3f51b5',
+             secondary: '#b0bec5',
+             accent: '#8c9eff',
+             error: '#b71c1c'
+         },
+         methods: {
+             getWeekDay: function () {
+                let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+                return days[this.localTime.getDay()];
+            },
+            getLocalDay: function () {
+                 let day = this.localTime.getDay();
+                 if (day == 0) day = 7;
+
+                 return day;
+            },
+            getDateAgo: function (days) {
+                 let dateCopy = new Date(this.localTime);
+                 dateCopy.setDate(this.localTime.getDate() - days);
+                 return dateCopy.getDate();
+            }
+         }
+     });
+
+
+ </script>
+
+
+<script src="js/lesson-11.js"></script>
+
+</body>
+</html>
