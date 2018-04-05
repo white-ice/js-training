@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Методы объектов, this</title>
+</head>
+<body>
+    <h2>Методы объектов, this</h2>
+
+    <script>
+        var calculator = {
+            read: function() {
+                this.n1 = +prompt('Введите цифры', 0);
+                this.n2 = +prompt('Введите цифры', 0);
+            },
+            sum: function() {
+                if (!this.n1 && !this.n2) {
+                    this.read();
+                }
+                this.n3 = this.n1 + this.n2;
+                return alert(this.n3);
+            },
+            mul: function() {
+                if (!this.n3) this.read();
+                return alert( this.n3 );
+            }
+        }
+        calculator.read();
+        calculator.sum();
+        calculator.mul();
+
+    </script>
+
+    <script src="js/lesson-1.js"></script>
+</body>
+</html>
