@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Преобразование объектов: toString и valueOf</title>
+</head>
+<body>
+    <h2>Преобразование объектов: toString и valueOf</h2>
+
+    <script>
+
+        function sum(a) {
+            var c = a;
+            function f(b) {
+                c += b;
+                return f;
+            }
+            f.toString = function() {
+                return c;
+            };
+
+            return f;
+        }
+
+        alert(sum(1)(2));
+        alert(sum(1)(2)(5));
+    </script>
+
+    <script src="js/lesson-1.js"></script>
+</body>
+</html>

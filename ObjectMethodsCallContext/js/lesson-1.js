@@ -31,3 +31,14 @@ var user = {
 var a = user.export().value.firstName;
 
 console.log("user", a );
+
+// Логическое преобразование
+if({} && []) console.log('Все объекты - true');
+
+// Строковое преобразование
+
+user.toString = function() {
+    return 'Пользователь ' + this.firstName;
+};
+
+console.log( user );
