@@ -42,3 +42,27 @@ user.toString = function() {
 };
 
 console.log( user );
+
+// Созадание объектов через "new"
+function Animal(name) {
+    this.name = name;
+    this.canWalk = true;
+}
+
+var animal = new Animal('ежик');
+
+console.log(animal);
+
+var obj3 = {};
+function A() {
+    return obj;
+}
+function B() {
+    return obj;
+}
+
+var a = new A;
+var b = new B;
+
+console.log( a == b );
+
