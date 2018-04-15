@@ -66,3 +66,32 @@ var b = new B;
 
 console.log( a == b );
 
+
+// Явное указание this: "call", "apply"
+
+function showFullName() {
+    console.log( this.firstName + ' ' + this.lastName );
+}
+
+user.lastName = 'Петров';
+
+showFullName.call(user);
+
+// «Одалживание метода»
+
+function printArgs() {
+    arguments.join = [].join;
+    var argStr = arguments.join(':');
+    console.log( argStr );
+}
+
+printArgs(1, 2, 3);
+
+// Ещё пример: [].slice.call(arguments)
+
+function printArgs1() {
+    var args = [].slice.call(arguments);
+    console.log(args.join(', '));
+}
+
+printArgs1('Привет', 'мой', 'мир');
