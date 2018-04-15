@@ -95,3 +95,17 @@ function printArgs1() {
 }
 
 printArgs1('Привет', 'мой', 'мир');
+
+// Привязка контекста и карринг: "bind"
+
+function bind(fun, context) {
+    return function() {
+        return func.apply(context, arguments);
+    }
+}
+
+user.sayHi = function () {
+    console.log( this.firstName );
+};
+
+setTimeout(bind(user.sayHi, user), 1000);
