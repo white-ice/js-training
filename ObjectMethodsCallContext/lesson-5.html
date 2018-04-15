@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статические и фабричные методы</title>
+</head>
+<body>
+<script>
+    function Article() {
+        // this.created = new Date();
+        Article.count++;
+        Article.last = new Date();
+    }
+
+    Article.count = 0;
+
+    Article.showCount = function () {
+        alert( 'Всего: ' + this.count + ', Последняя: ' + this.last );
+    };
+
+    new Article();
+    new Article();
+
+    Article.showCount();
+
+    new Article();
+
+    Article.showCount();
+
+</script>
+</body>
+</html>
