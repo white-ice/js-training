@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson-4.html</title>
+</head>
+<body>
+    <h2>lesson-4.html</h2>
+
+    <script>
+        var mathematicalExpression, res;
+        while (true) {
+            mathematicalExpression = prompt('Введите выражение?', '2*3+2');
+            if (mathematicalExpression == null) break;
+            try {
+                res = eval(mathematicalExpression);
+                if (isNaN(res)) {
+                    throw new Error("Результат неопределён");
+                }
+
+                break;
+            } catch (e) {
+                alert( "Ошибка: " + e.message + ", повторите ввод" );
+            }
+        }
+
+        alert(res);
+    </script>
+
+    <script src="./js/lesson.js"></script>
+</body>
+</html>
