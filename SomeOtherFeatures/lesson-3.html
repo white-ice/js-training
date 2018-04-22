@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout и setInterval</title>
+</head>
+<body>
+    <h2>setTimeout и setInterval</h2>
+
+    <script>
+        function printNumbersInterval() {
+            var n = 1;
+            var timeId = setInterval(function () {
+                console.log(n);
+                if (n == 20 ) clearInterval(timeId);
+                n++;
+            }, 100);
+
+        }
+        printNumbersInterval();
+    </script>
+
+    <script src="./js/lesson.js"></script>
+</body>
+</html>
