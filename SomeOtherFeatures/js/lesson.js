@@ -39,3 +39,5 @@ function sayHi(who) {
 }
 sayHi("Вася");
 sayHi(["Саша", "Петя", ["Маша", "Юля"]]);
+
+eval('console.log(1+1)');
